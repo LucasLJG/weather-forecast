@@ -25,7 +25,7 @@ def get_weather(city):
         """
 
         # Validação básica de dados
-        if not all(data in key for key in ("main","weather")):
+        if not all(key in data for key in ("main","weather")):
             raise ValueError("Resposta da API inválida.")
         
         return {
