@@ -5,8 +5,8 @@ def get_weather(city):
     params = {
         "q": city,
         "appid": API_KEY,
-        "units": "metrics", # Temperatura em Celsius
-        "lang": "pt-br" # Descrições em pt-br
+        "units": "metric", # Temperatura em Celsius
+        "lang": "pt_br" # Descrições em pt-br
     }
 
     try:
