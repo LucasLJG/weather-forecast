@@ -31,6 +31,15 @@ def get_history(limit=5):
         cursor = conn.cursor()
         cursor.execute("SELECT city, temperature, description, search_time FROM searches ORDER BY search_time DESC LIMIT ?", (limit,))
         return cursor.fetchall()
+    
+# Limpeza do histórico
+def clear_history():
+    with closing(sqlite3.connect("weather_history.db")) as conn:
+        with conn as db:
+            db.execute("DELETE FROM searches")
+            db.execute("VACUUM") # Compacta o banco de dados após deletar
+    
+
             
 
 
